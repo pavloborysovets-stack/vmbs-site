@@ -367,6 +367,8 @@ ul.plain { list-style: none; padding: 0; }
 .stagebar .st sup { font-size: .8em; margin-left: 1px; }
 .stagebar .sb-note { margin: 10px 0 0; font-size: .8rem; color: var(--sb-dim); }
 .stagebar.light .sb-note { color: var(--muted, #6b5a4c); }
+/* RIBA wheel on the Management tile: show whole */
+.tile img[src*="service-management"], .card img[src*="service-management"] { object-fit: contain; background: #fff; }
 
 /* ALT theme: graphite base, timber-brown accent, grotesque body, serif display. Loaded after styles.css. */
 :root {
