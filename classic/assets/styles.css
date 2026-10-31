@@ -383,3 +383,11 @@ img.zoomable:focus-visible { outline: 3px solid var(--brand, #a15f2a); outline-o
 .lightbox .lb-prev { left: max(12px, env(safe-area-inset-left)); top: 50%; transform: translateY(-50%); }
 .lightbox .lb-next { right: max(12px, env(safe-area-inset-right)); top: 50%; transform: translateY(-50%); }
 .lightbox button[hidden] { display: none; }
+/* ARC page */
+.arc-video { margin: 24px 0 8px; }
+.arc-video video { display: block; width: 100%; max-width: 100%; aspect-ratio: 16/9; background: #e9ecef; border-radius: var(--radius); }
+.arc-video figcaption { margin-top: 8px; font-size: .9rem; color: var(--muted, #6b5a4c); }
+.arc-slides { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 720px) { .arc-slides { grid-template-columns: repeat(2, 1fr); } }
+.arc-slides figure { margin: 0; aspect-ratio: 16/9; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: #f4f5f7; }
+.arc-slides img { width: 100%; height: 100%; object-fit: contain; display: block; }
