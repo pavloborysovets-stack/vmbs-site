@@ -298,3 +298,72 @@ ul.plain { list-style: none; padding: 0; }
 .case-nav a span { display: block; color: var(--muted); font-size: .9rem; }
 .small { font-size: .9rem; }
 @media (min-width: 1200px) { .nav a, .nav summary { padding: 10px 12px; font-size: 1rem; } .logo small { display: block; } }
+/* ===== VMBS stage bar: project stages 0–7 and our scope =====
+   Append to assets/styles.css. Default is for dark backgrounds (hero).
+   Add class "light" for white/sand sections. */
+.stagebar {
+  --sb-accent: var(--accent, #a15f2a);
+  --sb-fg: #fff;
+  --sb-dim: rgba(255,255,255,.42);
+  --sb-line: rgba(255,255,255,.28);
+  --sb-notch: 12px;
+  margin-top: 40px; font-family: var(--sans); color: var(--sb-fg);
+}
+.stagebar.light { --sb-fg: var(--ink, #1a2029); --sb-dim: #8a929c; --sb-line: #c9d0d8; }
+
+.stagebar .sb-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 24px; margin-bottom: 12px; }
+.stagebar .sb-head .sb-title { font-size: .95rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--sand, #e0cdb8); margin: 0; }
+.stagebar.light .sb-head .sb-title { color: var(--brand-deep, #141c26); }
+.stagebar .sb-legend { display: flex; flex-wrap: wrap; gap: 4px 18px; list-style: none; margin: 0; padding: 0; font-size: .78rem; color: var(--sb-fg); opacity: .8; }
+.stagebar .sb-legend li { display: flex; align-items: center; gap: 7px; }
+.stagebar .sb-legend i { width: 18px; height: 10px; display: inline-block; }
+
+/* scroll on narrow screens, full width from 900px */
+.stagebar .sb-scroll { overflow-x: auto; scrollbar-width: thin; padding-bottom: 6px; -webkit-overflow-scrolling: touch; }
+.stagebar .sb-track { display: grid; grid-template-columns: repeat(8, minmax(108px, 1fr)); column-gap: 3px; min-width: 880px; }
+@media (min-width: 900px) { .stagebar .sb-track { min-width: 0; } }
+
+/* chevron cells */
+.stagebar ol { display: contents; list-style: none; }
+.stagebar .st {
+  position: relative; min-height: 76px; padding: 10px 10px 10px calc(var(--sb-notch) + 12px);
+  display: flex; flex-direction: column; justify-content: flex-start; gap: 4px;
+  clip-path: polygon(0 0, calc(100% - var(--sb-notch)) 0, 100% 50%, calc(100% - var(--sb-notch)) 100%, 0 100%, var(--sb-notch) 50%);
+}
+.stagebar .st:first-child { clip-path: polygon(0 0, calc(100% - var(--sb-notch)) 0, 100% 50%, calc(100% - var(--sb-notch)) 100%, 0 100%); padding-left: 12px; }
+.stagebar .st b { font-family: var(--serif); font-weight: 400; font-size: 1.55rem; line-height: 1; }
+.stagebar .st span { margin: 0; font-size: .78rem; line-height: 1.25; letter-spacing: .01em; }
+
+/* states */
+.stagebar .lead { background: var(--sb-accent); color: #fff; }
+.stagebar .coord { background: repeating-linear-gradient(135deg, rgba(161,95,42,.75) 0 2px, transparent 2px 10px), rgba(161,95,42,.30); color: var(--sb-fg); }
+.stagebar.light .coord { background: repeating-linear-gradient(135deg, rgba(161,95,42,.45) 0 2px, transparent 2px 10px), #f1e4d6; color: var(--sb-fg); }
+.stagebar .coord span, .stagebar .coord b { text-shadow: 0 1px 6px rgba(20,28,38,.55); }
+.stagebar.light .coord span, .stagebar.light .coord b { text-shadow: 0 0 4px #fff, 0 0 8px #fff; }
+.stagebar .opt { background: rgba(255,255,255,.14); color: var(--sb-fg); }
+.stagebar.light .opt { background: #dde3ea; }
+.stagebar .out { background: rgba(255,255,255,.09); color: var(--sb-dim); }
+.stagebar.light .out { background: #fff; outline: 0; box-shadow: inset 0 0 0 1px #dfe4ea; }
+
+/* legend swatches reuse the same fills */
+.stagebar .sb-legend .lead, .stagebar .sb-legend .coord, .stagebar .sb-legend .opt, .stagebar .sb-legend .out { clip-path: polygon(0 0, 75% 0, 100% 50%, 75% 100%, 0 100%); }
+
+/* service brackets under the cells */
+.stagebar .sb-svc { display: contents; }
+.stagebar .svc {
+  grid-row: 2; margin-top: 10px; padding-top: 8px; border-top: 2px solid var(--sb-accent);
+  position: relative; font-size: .8rem; line-height: 1.3; color: var(--sb-fg);
+}
+.stagebar .svc::before, .stagebar .svc::after { content: ""; position: absolute; top: -8px; width: 2px; height: 8px; background: var(--sb-accent); }
+.stagebar .svc::before { left: 0; } .stagebar .svc::after { right: 0; }
+.stagebar .svc a { color: inherit; text-decoration: none; }
+.stagebar .svc a:hover { text-decoration: underline; text-decoration-color: var(--sb-accent); }
+.stagebar .svc.soft { border-top-style: dashed; border-top-color: var(--sb-line); color: var(--sb-dim); }
+.stagebar .svc.soft::before, .stagebar .svc.soft::after { background: var(--sb-line); }
+.stagebar .s01 { grid-column: 1 / 3; } .stagebar .s2 { grid-column: 3; } .stagebar .s3 { grid-column: 4; } .stagebar .s46 { grid-column: 5 / 8; }
+/* stage bar placed in its own white section under the hero */
+.section.stages { padding-top: 32px; padding-bottom: 8px; background: #fff; }
+.section.stages .stagebar { margin-top: 0; }
+.stagebar .st sup { font-size: .8em; margin-left: 1px; }
+.stagebar .sb-note { margin: 10px 0 0; font-size: .8rem; color: var(--sb-dim); }
+.stagebar.light .sb-note { color: var(--muted, #6b5a4c); }
