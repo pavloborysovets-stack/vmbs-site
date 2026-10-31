@@ -98,3 +98,40 @@
     });
   }
 })();
+
+// ---- lightbox: click a project picture to view it full screen, with arrows ----
+(function () {
+  var SEL = '.case-hero img, .case-gallery img, .gallery img, .post-cover img, .lb img';
+  var imgs = [].slice.call(document.querySelectorAll(SEL));
+  if (!imgs.length) return;
+  var lang = (document.documentElement.lang || 'en').slice(0, 2);
+  var T = { en: ['Close', 'Previous', 'Next', 'Image'], de: ['Schließen', 'Zurück', 'Weiter', 'Bild'], pl: ['Zamknij', 'Poprzedni', 'Następny', 'Obraz'] }[lang] || ['Close', 'Previous', 'Next', 'Image'];
+  var box = document.createElement('div');
+  box.className = 'lightbox'; box.hidden = true; box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true'); box.setAttribute('aria-label', T[3]);
+  box.innerHTML = '<button type="button" class="lb-close" aria-label="' + T[0] + '">×</button>' +
+    '<button type="button" class="lb-prev" aria-label="' + T[1] + '">‹</button>' +
+    '<figure><img alt=""><figcaption></figcaption></figure>' +
+    '<button type="button" class="lb-next" aria-label="' + T[2] + '">›</button>';
+  document.body.appendChild(box);
+  var big = box.querySelector('img'), cap = box.querySelector('figcaption'), i = 0, last = null;
+  function show(n) { i = (n + imgs.length) % imgs.length; big.src = imgs[i].currentSrc || imgs[i].src; big.alt = imgs[i].alt || ''; cap.textContent = (i + 1) + ' / ' + imgs.length; box.querySelector('.lb-prev').hidden = box.querySelector('.lb-next').hidden = imgs.length < 2; }
+  function open(n) { last = document.activeElement; show(n); box.hidden = false; document.documentElement.style.overflow = 'hidden'; box.querySelector('.lb-close').focus(); }
+  function close() { box.hidden = true; document.documentElement.style.overflow = ''; if (last) last.focus(); }
+  imgs.forEach(function (im, n) {
+    im.classList.add('zoomable'); im.setAttribute('tabindex', '0'); im.setAttribute('role', 'button');
+    im.addEventListener('click', function (e) { e.preventDefault(); open(n); });
+    im.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(n); } });
+  });
+  box.addEventListener('click', function (e) {
+    if (e.target.closest('.lb-prev')) show(i - 1);
+    else if (e.target.closest('.lb-next')) show(i + 1);
+    else if (e.target.closest('.lb-close') || e.target === box) close();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (box.hidden) return;
+    if (e.key === 'Escape') close(); else if (e.key === 'ArrowLeft') show(i - 1); else if (e.key === 'ArrowRight') show(i + 1);
+  });
+  var x0 = null;
+  box.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  box.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1)); x0 = null; });
+})();
