@@ -128,7 +128,7 @@ ul.plain { list-style: none; padding: 0; }
 .stats-note { color: var(--muted); font-size: .95rem; margin-top: 12px; }
 
 .grid { display: grid; gap: 20px; }
-@media (min-width: 640px) { .grid.c2 { grid-template-columns: repeat(2, 1fr); } .grid.c3 { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 640px) { .grid.c2 { grid-template-columns: repeat(2, 1fr); } .grid.c3 { grid-template-columns: repeat(2, 1fr); } .grid.c4 { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .grid.c3 { grid-template-columns: repeat(3, 1fr); } .grid.c4 { grid-template-columns: repeat(4, 1fr); } }
 
 /* tiles (services) */
