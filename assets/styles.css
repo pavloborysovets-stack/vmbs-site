@@ -544,3 +544,8 @@ a { color: var(--brand-deep); text-decoration-color: var(--accent); }
 .faq summary::after { content: "+"; position: absolute; right: 4px; top: 0; color: var(--accent); font-size: 1.3rem; line-height: 1; }
 .faq details[open] summary::after { content: "–"; }
 .faq details p { margin: 10px 0 0; color: var(--ink-soft); }
+
+/* people cards align */
+.people { align-items: stretch; }
+.people .person > div { display: flex; flex-direction: column; }
+.people .person > div > p:last-child { margin-top: auto; padding-top: 12px; }
