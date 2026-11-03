@@ -536,3 +536,11 @@ a { color: var(--brand-deep); text-decoration-color: var(--accent); }
 .hww .faq details[open] summary::after { content: "–"; }
 .hww .faq details p { margin: 10px 0 0; color: var(--ink-soft); }
 .hww .section.stages { background: #fff; padding-top: 8px; padding-bottom: 40px; }
+
+/* service faq */
+.faq details { border-bottom: 1px solid var(--line); padding: 14px 0; }
+.faq summary { cursor: pointer; font-family: var(--serif); font-size: 1.15rem; color: var(--brand-deep); list-style: none; position: relative; padding-right: 28px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; position: absolute; right: 4px; top: 0; color: var(--accent); font-size: 1.3rem; line-height: 1; }
+.faq details[open] summary::after { content: "–"; }
+.faq details p { margin: 10px 0 0; color: var(--ink-soft); }
