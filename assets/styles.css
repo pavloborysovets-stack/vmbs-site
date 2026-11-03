@@ -514,3 +514,4 @@ a { color: var(--brand-deep); text-decoration-color: var(--accent); }
 .contact-page .person h3 { font-weight: 700; font-size: 1.6rem; margin-bottom: 1em; }
 .contact-page .person .fig { aspect-ratio: 4 / 3; }
 .contact-page .person .fig img { width: 100%; height: 100%; }
+.contact-page .person { align-content: start; }
