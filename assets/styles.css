@@ -511,3 +511,4 @@ a { color: var(--brand-deep); text-decoration-color: var(--accent); }
 .contact-page > h1, .contact-page > .lead, .contact-page > p { text-align: center; }
 .contact-page > .lead { margin-left: auto; margin-right: auto; }
 .contact-page .person .fig img[src*="service-mmc"], .contact-page .person .fig img[src*="contact-production"] { object-fit: contain; background: #fff; }
+.contact-page .person h3 { font-weight: 700; font-size: 1.6rem; margin-bottom: 1em; }
