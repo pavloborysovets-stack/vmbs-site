@@ -492,3 +492,18 @@ a { color: var(--brand-deep); text-decoration-color: var(--accent); }
 .filter button[aria-pressed="true"] { background: var(--brand-deep); color: #fff; }
 .section.alt { background: var(--sand-light); }
 .party { border-top-color: var(--accent); }
+/* services page: centred incomplete rows, captions at top, highlighted extra tiles */
+.grid.services-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+.grid.services-grid > .tile { flex: 0 1 100%; }
+@media (min-width: 640px) { .grid.services-grid > .tile { flex-basis: calc((100% - 20px) / 2); } }
+@media (min-width: 1024px) { .grid.services-grid > .tile { flex-basis: calc((100% - 40px) / 3); } }
+.services-grid .tile .cap { justify-content: flex-start; }
+.grid.services-extra { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
+.services-extra .tile { background: var(--sand-light); border-color: var(--sand); }
+.services-extra .tile:hover { border-color: var(--accent); }
+
+/* about page: centred headings */
+.about h1, .about h2, .center-head > h2, .center-head > p { text-align: center; }
+.about h2::before, .center-head > h2::before { left: 50%; transform: translateX(-50%); }
+.about .lead { margin-left: auto; margin-right: auto; text-align: center; }
+.people .person > div > p { margin: 0 0 4px; }
