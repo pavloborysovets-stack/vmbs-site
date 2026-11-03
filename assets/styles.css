@@ -549,3 +549,6 @@ a { color: var(--brand-deep); text-decoration-color: var(--accent); }
 .people { align-items: stretch; }
 .people .person > div { display: flex; flex-direction: column; }
 .people .person > div > p:last-child { margin-top: auto; padding-top: 12px; }
+/* card footer link aligned at the bottom of equal-height cards */
+.case-card .body, .case-cats .body { display: flex; flex-direction: column; }
+.case-card .body > a:last-child, .case-cats .body > a:last-child { margin-top: auto; padding-top: 8px; }
