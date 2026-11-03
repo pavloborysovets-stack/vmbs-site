@@ -507,3 +507,7 @@ a { color: var(--brand-deep); text-decoration-color: var(--accent); }
 .about h2::before, .center-head > h2::before { left: 50%; transform: translateX(-50%); }
 .about .lead { margin-left: auto; margin-right: auto; text-align: center; }
 .people .person > div > p { margin: 0 0 4px; }
+/* contact page: centred intro, specialisation images instead of portraits */
+.contact-page > h1, .contact-page > .lead, .contact-page > p { text-align: center; }
+.contact-page > .lead { margin-left: auto; margin-right: auto; }
+.contact-page .person .fig img[src*="service-mmc"] { object-fit: contain; background: #fff; }
