@@ -122,6 +122,8 @@
       secY += cy + 64;
     }
     await applied();
+    for (const s of ds.components.getChildren(page)) { if (ds.components.getChildren(s).length === 0) ds.components.remove(s) }
+    await applied();
     // re-sequence sections
     let y = 0; for (const s of ds.components.getChildren(page).sort((a, b) => ds.components.layout.get(a).y - ds.components.layout.get(b).y)) { L(s, { y }); y += ds.components.layout.get(s).height }
     await applied();
