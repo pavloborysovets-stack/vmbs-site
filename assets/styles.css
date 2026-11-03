@@ -510,4 +510,4 @@ a { color: var(--brand-deep); text-decoration-color: var(--accent); }
 /* contact page: centred intro, specialisation images instead of portraits */
 .contact-page > h1, .contact-page > .lead, .contact-page > p { text-align: center; }
 .contact-page > .lead { margin-left: auto; margin-right: auto; }
-.contact-page .person .fig img[src*="service-mmc"] { object-fit: contain; background: #fff; }
+.contact-page .person .fig img[src*="service-mmc"], .contact-page .person .fig img[src*="contact-production"] { object-fit: contain; background: #fff; }
