@@ -5,9 +5,10 @@ a{display:flex;align-items:center;gap:10px;height:100vh;color:#fff;text-decorati
 svg{width:30px;height:28px;flex:none}
 b{display:block;font-weight:700;font-size:22px;letter-spacing:.12em;line-height:1.1}
 small{display:block;font-size:9px;letter-spacing:.14em;text-transform:uppercase;line-height:1.4;opacity:.9}
-a:hover,a:focus-visible{color:#A15F2A}
-a:hover small,a:focus-visible small{opacity:1}
+a.on,a:focus-visible{color:#A15F2A}
+a.on small,a:focus-visible small{opacity:1}
 a:focus-visible{outline:2px solid #A15F2A;outline-offset:2px}
 </style></head><body>
 <a href="https://www.vmbs.tech/" target="_top" title="VMBS.TECH — Home" aria-label="VMBS.TECH — Home"><svg viewBox="0 0 30 28" aria-hidden="true"><rect x="8" y="0" width="12" height="12" fill="#A15F2A"/><rect x="0" y="14" width="12" height="12" fill="#fff"/><rect x="16" y="14" width="12" height="12" fill="#fff"/></svg><span><b>VMBS.TECH</b><small>Volumetric Modular Building Solutions</small></span></a>
+<script>(function(){var a=document.querySelector("a"),on=function(){a.classList.add("on")},off=function(){a.classList.remove("on")};a.addEventListener("pointerenter",on);a.addEventListener("pointerleave",off);document.addEventListener("pointerleave",off);document.documentElement.addEventListener("mouseleave",off);window.addEventListener("blur",off);document.addEventListener("pointermove",function(e){var r=a.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)off();else on()})})();</script>
 </body></html>
