@@ -10,8 +10,7 @@
     acked=false;
     var list=imgs.map(function(im,j){return [src(j),im.alt||'']});
     try{window.parent.postMessage({type:'vmbs-zoom',list:list,index:i},'*')}catch(e){}
-    var w=null;
-    setTimeout(function(){if(!acked){window.open(src(i),'_blank')}},1500);
+    setTimeout(function(){if(!acked){window.open('https://pavloborysovets-stack.github.io/vmbs-site/assets/embed/wix/viewer.html#'+encodeURIComponent(JSON.stringify({l:list,i:i})),'_blank')}},1500);
   }
   imgs.forEach(function(im,i){im.classList.add('vz');im.setAttribute('tabindex','0');im.setAttribute('role','button');im.setAttribute('aria-label','Enlarge image: '+(im.alt||''));
     im.addEventListener('click',function(){open(i)});im.addEventListener('keydown',function(e){if(e.key==='Enter')open(i)});});
